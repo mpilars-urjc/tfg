@@ -1,0 +1,515 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Property Management System</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- <link rel="manifest" href="site.webmanifest"> -->
+	<link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.png">
+	<!-- Place favicon.ico in the root directory -->
+
+	<!-- CSS here -->
+	<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="/static/css/magnific-popup.css">
+	<link rel="stylesheet" href="/static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/static/css/themify-icons.css">
+	<link rel="stylesheet" href="/static/css/nice-select.css">
+	<link rel="stylesheet" href="/static/css/flaticon.css">
+	<link rel="stylesheet" href="/static/css/gijgo.css">
+	<link rel="stylesheet" href="/static/css/animate.css">
+	<link rel="stylesheet" href="/static/css/slicknav.css">
+	<link rel="stylesheet" href="/static/css/style.css">
+	<link rel="stylesheet" href="/static/css/personal.css">
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+	<!-- <link rel="stylesheet" href="/static/css/responsive.css"> -->
+</head>
+
+<body>
+	<!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <!-- header-start -->
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container-fluid p-0">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-xl-5 col-lg-6">
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a href="/">home</a></li>
+                                        <li><a class="active" href="/pms/planning-de-ocupacion">PMS <i class="ti-angle-down"></i></a>
+											<ul class="submenu">
+                                                <li><a href="/pms/planning-de-ocupacion">Planning de ocupación</a></li>
+                                                <li><a href="/pms/panel-de-reservas">Panel de reservas</a></li>
+												<li><a href="#">Facturación</a></li>
+												<li><a href="#">Cuadro de caja</a></li>
+                                                <li><a href="/pms/panel-de-checkin">Panel de Check-In</a></li>
+                                                <li><a href="/pms/herramientas/calculadora">Calculadora</a></li>
+                                            </ul>
+										</li>
+                                        <li><a href="/crm/gestion-demanda">CRM <i class="ti-angle-down"></i></a>
+											<ul class="submenu">
+                                                <li><a href="/crm/gestion-demanda">Control de demandas</a></li>
+                                                <li><a href="/crm/calendario">Calendario</a></li>
+												<li><a href="#">Informes</a></li>
+                                            </ul>
+										</li>
+                                        <li><a href="/channelmanager/gestion-de-comerciales">Channel Manager <i class="ti-angle-down"></i></a>
+											<ul class="submenu">
+                                                <li><a href="/channelmanager/gestion-de-comerciales">Gestión de comerciales</a></li>
+                                                <li><a href="/channelmanager/gestion-de-variables">Gestión de variables</a></li>
+												<li><a href="/channelmanager/gestion-de-inmuebles">Gestión de inmuebles</a></li>
+                                            </ul>
+										</li>
+                                        <li><a href="#">Account</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
+
+    <!-- bradcam_area_start -->
+    <div class="bradcam_area breadcam_bg">
+    </div>
+    <!-- bradcam_area_end -->
+
+	<!-- Start Sample Area -->
+	<section class="sample-text-area">
+		<div class="container box_1170">
+			<h3 class="text-heading">Planning de ocupación</h3>
+			<form method="post"> {% csrf_token %}
+				<div class="row">
+					<div class="col-md-8">
+						Apartamento
+						<select name="apartment" id="apartment">
+							{% for item in apartments %}
+								{% if item.apartamentoIdentificador == apartment %}
+									<option value="{{item.apartamentoIdentificador}}" selected>{{item}}</option>
+								{% else %}
+									<option value="{{item.apartamentoIdentificador}}">{{item}}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</div>
+					<div class="col-md-2">
+						Mes
+						<select name="month" id="month">
+							{% for item in months %}
+								{% if item == 1 %}
+									{% if item == month %}
+										<option value="1" selected>Enero</option>
+									{% else %}
+										<option value="1">Enero</option>
+									{%endif %}
+								{% elif item == 2 %}
+									{% if item == month %}
+										<option value="2" selected>Febrero</option>
+									{% else %}
+										<option value="2">Febrero</option>
+									{%endif %}
+								{% elif item == 3 %}
+									{% if item == month %}
+										<option value="3" selected>Marzo</option>
+									{% else %}
+										<option value="3">Marzo</option>
+									{%endif %}
+								{% elif item == 4 %}
+									{% if item == month %}
+										<option value="4" selected>Abril</option>
+									{% else %}
+										<option value="4">Abril</option>
+									{%endif %}
+								{% elif item == 5 %}
+									{% if item == month %}
+										<option value="5" selected>Mayo</option>
+									{% else %}
+										<option value="5">Mayo</option>
+									{%endif %}
+								{% elif item == 6 %}
+									{% if item == month %}
+										<option value="6" selected>Junio</option>
+									{% else %}
+										<option value="6">Junio</option>
+									{%endif %}
+								{% elif item == 7 %}
+									{% if item == month %}
+										<option value="7" selected>Julio</option>
+									{% else %}
+										<option value="7">Julio</option>
+									{%endif %}
+								{% elif item == 8 %}
+									{% if item == month %}
+										<option value="8" selected>Agosto</option>
+									{% else %}
+										<option value="8">Agosto</option>
+									{%endif %}								
+								{% elif item == 9 %}
+									{% if item == month %}
+										<option value="9" selected>Septiembre</option>
+									{% else %}
+										<option value="9">Septiembre</option>
+									{%endif %}	
+								{% elif item == 10 %}
+									{% if item == month %}
+										<option value="10" selected>Octubre</option>
+									{% else %}
+										<option value="10">Octubre</option>
+									{%endif %}	
+								{% elif item == 11 %}
+									{% if item == month %}
+										<option value="11" selected>Noviembre</option>
+									{% else %}
+										<option value="11">Noviembre</option>
+									{%endif %}	
+								{% elif item == 12 %}
+									{% if item == month %}
+										<option value="12" selected>Diciembre</option>
+									{% else %}
+										<option value="12">Diciembre</option>
+									{%endif %}	
+								{% endif %}
+							{% endfor %}
+						</select>
+					</div>
+					<div class="col-md-2">
+						Año
+						<select name="year" id="year">
+							{% for item in years %}
+							{% if item == year %}
+							<option value="{{item}}" selected>{{item}}</option>
+							{% else %}
+							<option value="{{item}}">{{item}}</option>
+							{% endif %}
+							{% endfor %}
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5"></div>
+					<div class="col-md-2" style="text-align: center;">
+						<br>
+						<button type="submit" class="btn btn-outline-success btn-sm">Filtrar</button>
+					</div>
+					<div class="col-md-5"></div>
+				</div>
+			</form>
+
+			{% if show %}
+			<hr>
+
+			<div class="row">
+				<table class="table table-bordered table-sm">
+					<thead>
+					<tr>
+						<th scope="col">Hab</th>
+						{% for day in days %}
+						<th scope="col">{{day}}</th>
+						{% endfor %}
+					</tr>
+					</thead>
+					<tbody>
+						{% for room in listRooms %}
+					<tr>
+						<th scope="row">{{room.habitacionIdentificador}}</th>
+						{% for day in days %}
+						{% load index %}
+						{% if roomsAvailability|index:forloop.parentloop.counter0|index:forloop.counter0 == 1 %}
+						<td style="text-align: center;"><img src="/static/img/danger-icon.png" style="width:20px;height:20px;"></td>
+						{% else %}
+						<td style="text-align: center;"><img src="/static/img/ok-icon.png" style="width:20px;height:20px;"></td>
+						{% endif %}
+						{% endfor %}
+					</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+
+			<div class="row">
+				<div class="col-md-5"></div>
+				<div class="col-md-1">
+					<form method="post"> {% csrf_token %}
+						<input type="text" id="apartment" name="apartment" value="{{apartment}}" hidden>
+						<input type="text" id="month" name="month" value="{{prevMonth}}" hidden>
+						<input type="text" id="year" name="year" value="{{prevYear}}" hidden>
+						<button type="submit" class="btn btn-outline-dark btn-sm" onclick="">Anterior</button>
+					</form>
+				</div>
+				<div class="col-md-1">
+					<form method="post"> {% csrf_token %}
+						<input type="text" id="apartment" name="apartment" value="{{apartment}}" hidden>
+						<input type="text" id="month" name="month" value="{{nextMonth}}" hidden>
+						<input type="text" id="year" name="year" value="{{nextYear}}" hidden>
+						<button type="submit" class="btn btn-outline-dark btn-sm">Siguiente</button>
+					</form>
+				</div>
+				<div class="col-md-5"></div>
+			</div>
+
+			<br>
+			<hr>
+			<br>
+
+			<div class="row">
+				<div class="col-md-12">
+					<table class="table table-striped">
+						<thead>
+						  <tr>
+							<th scope="col"></th>
+							<th scope="col">Metros</th>
+							<th scope="col">Baños</th>
+							<th scope="col">Ventana</th>
+							<th scope="col">Ascensor</th>
+							<th scope="col">Balcon</th>
+							<th scope="col">Cama</th>
+							<th scope="col">Tipo</th>
+							<th scope="col">Uso</th>
+						  </tr>
+						</thead>
+						<tbody>
+						{% for room in listRooms %}
+						  <tr style="text-align: center;">
+							<th scope="row">{{room.habitacionIdentificador}}</th>
+							<td>{{room.habitacionMetros}} m<sup style="color: black;">2</sup></td>
+							<td>{{room.habitacionBanos}} + {{room.habitacionAseos}}</td>
+							{% if room.habitacionVentanas %}
+							<td><img src="/static/img/ok-icon.png" style="width:20px;height:20px;"></td>
+							{% else %}
+							<td><img src="/static/img/danger-icon.png" style="width:20px;height:20px;"></td>
+							{% endif %}
+							{% if room.habitacionAscensor %}
+							<td><img src="/static/img/ok-icon.png" style="width:20px;height:20px;"></td>
+							{% else %}
+							<td><img src="/static/img/danger-icon.png" style="width:20px;height:20px;"></td>
+							{% endif %}
+							{% if room.habitacionBalcon %}
+							<td><img src="/static/img/ok-icon.png" style="width:20px;height:20px;"></td>
+							{% else %}
+							<td><img src="/static/img/danger-icon.png" style="width:20px;height:20px;"></td>
+							{% endif %}
+							{% if room.habitacionCama == "1" %}
+							<td>90 cm</td>
+							{% elif room.habitacionCama == "2" %}
+							<td>105 cm</td>
+							{% elif room.habitacionCama == "3" %}
+							<td>135 cm</td>
+							{% elif room.habitacionCama == "4" %}
+							<td>150 cm</td>
+							{% elif room.habitacionCama == "5" %}
+							<td>2 x 90 cm</td>
+							{% endif %}
+							{% if room.habitacionTipo == "INT" %}
+							<td>Interior</td>
+							{% elif room.habitacionTipo == "EXT" %}
+							<td>Exterior</td>
+							{% endif %}
+							{% if room.habitacionUso == "IND" %}
+							<td>Individual</td>
+							{% elif room.habitacionUso == "DOB" %}
+							<td>Doble</td>
+							{% endif %}
+						  </tr>
+						{% endfor %}
+						</tbody>
+					  </table>
+				</div>
+			</div>
+			{% endif %}
+	</section>
+	<!-- End Sample Area -->
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Zona PMS
+                            </h3>
+							<ul>
+								<li><a href="#">Planning de ocupación</a></li>
+								<li><a href="#">Panel de reservas</a></li>
+								<li><a href="#">Facturación</a></li>
+								<li><a href="#">Cuadro de caja</a></li>
+								<li><a href="#">Panel de Check-In</a></li>
+                                <li><a href="/pms/herramientas/calculadora">Calculadora</a></li>
+							</ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Zona CRM
+                            </h3>
+							<ul>
+								<li><a href="/crm/gestion-demanda">Control de demandas</a></li>
+								<li><a href="#">Calendario</a></li>
+								<li><a href="#">Informes</a></li>
+							</ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-2">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Manager
+                            </h3>
+                            <ul>
+								<li><a href="#">Gestión de usuarios</a></li>
+								<li><a href="#">Gestión de variables</a></li>
+								<li><a href="#">Gestión de inmuebles</a></li>
+							</ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right_text">
+            <div class="container">
+                <div class="footer_border"></div>
+                <div class="row">
+                    <div class="col-xl-8 col-md-7 col-lg-9">
+                        <p class="copy_right">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                    <div class="col-xl-4 col-md-5 col-lg-3">
+                        <div class="socail_links">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-facebook-square"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- form itself end-->
+	<form id="test-form" class="white-popup-block mfp-hide">
+		<div class="popup_box ">
+				<div class="popup_inner">
+					<h3>Check Availability</h3>
+					<form action="#">
+						<div class="row">
+							<div class="col-xl-6">
+								<input id="datepicker" placeholder="Check in date">
+							</div>
+							<div class="col-xl-6">
+								<input id="datepicker2" placeholder="Check out date">
+							</div>
+							<div class="col-xl-6">
+								<select class="form-select wide" id="default-select" class="">
+									<option data-display="Adult">1</option>
+									<option value="1">2</option>
+									<option value="2">3</option>
+									<option value="3">4</option>
+								</select>
+							</div>
+							<div class="col-xl-6">
+								<select class="form-select wide" id="default-select" class="">
+									<option data-display="Children">1</option>
+									<option value="1">2</option>
+									<option value="2">3</option>
+									<option value="3">4</option>
+								</select>
+							</div>
+							<div class="col-xl-12">
+								<select class="form-select wide" id="default-select" class="">
+									<option data-display="Room type">Room type</option>
+									<option value="1">Laxaries Rooms</option>
+									<option value="2">Deluxe Room</option>
+									<option value="3">Signature Room</option>
+									<option value="4">Couple Room</option>
+								</select>
+							</div>
+							<div class="col-xl-12">
+								<button type="submit" class="boxed-btn3">Check Availability</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+	</form>
+<!-- form itself end -->
+
+	<!-- JS here -->
+	<script src="/static/js/vendor/modernizr-3.5.0.min.js"></script>
+	<script src="/static/js/vendor/jquery-1.12.4.min.js"></script>
+	<script src="/static/js/popper.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/owl.carousel.min.js"></script>
+	<script src="/static/js/isotope.pkgd.min.js"></script>
+	<script src="/static/js/ajax-form.js"></script>
+	<script src="/static/js/waypoints.min.js"></script>
+	<script src="/static/js/jquery.counterup.min.js"></script>
+	<script src="/static/js/imagesloaded.pkgd.min.js"></script>
+	<script src="/static/js/scrollIt.js"></script>
+	<script src="/static/js/jquery.scrollUp.min.js"></script>
+	<script src="/static/js/wow.min.js"></script>
+	<script src="/static/js/nice-select.min.js"></script>
+	<script src="/static/js/jquery.slicknav.min.js"></script>
+	<script src="/static/js/jquery.magnific-popup.min.js"></script>
+	<script src="/static/js/plugins.js"></script>
+	<script src="/static/js/gijgo.min.js"></script>
+
+	<!--contact js-->
+	<script src="/static/js/contact.js"></script>
+	<script src="/static/js/jquery.ajaxchimp.min.js"></script>
+	<script src="/static/js/jquery.form.js"></script>
+	<script src="/static/js/jquery.validate.min.js"></script>
+	<script src="/static/js/mail-script.js"></script>
+
+	<script src="/static/js/main.js"></script>
+    <script>
+        $('#datepicker').datepicker({
+            iconsLibrary: 'fontawesome',
+            icons: {
+             rightIcon: '<span class="fa fa-caret-down"></span>'
+         }
+        });
+        $('#datepicker2').datepicker({
+            iconsLibrary: 'fontawesome',
+            icons: {
+             rightIcon: '<span class="fa fa-caret-down"></span>'
+         }
+
+        });
+		$(document).ready(function() {
+			$("#selectApartamento").select2();
+		});
+    </script>
+
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+</body>
+</html>

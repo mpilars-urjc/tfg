@@ -1,0 +1,321 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Property Management System</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- <link rel="manifest" href="site.webmanifest"> -->
+	<link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.png">
+	<!-- Place favicon.ico in the root directory -->
+
+	<!-- CSS here -->
+	<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="/static/css/magnific-popup.css">
+	<link rel="stylesheet" href="/static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/static/css/themify-icons.css">
+	<link rel="stylesheet" href="/static/css/nice-select.css">
+	<link rel="stylesheet" href="/static/css/flaticon.css">
+	<link rel="stylesheet" href="/static/css/gijgo.css">
+	<link rel="stylesheet" href="/static/css/animate.css">
+	<link rel="stylesheet" href="/static/css/slicknav.css">
+	<link rel="stylesheet" href="/static/css/style.css">
+	<link rel="stylesheet" href="/static/css/personal.css">
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+	<!-- <link rel="stylesheet" href="/static/css/responsive.css"> -->
+</head>
+
+<body>
+	<!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <!-- header-start -->
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container-fluid p-0">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-xl-5 col-lg-6">
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a href="/">home</a></li>
+                                        <li><a href="#">PMS <i class="ti-angle-down"></i></a>
+											<ul class="submenu">
+                                                <li><a href="#">Planning de ocupación</a></li>
+                                                <li><a href="/pms/panel-de-reservas">Panel de reservas</a></li>
+												<li><a href="#">Facturación</a></li>
+												<li><a href="#">Cuadro de caja</a></li>
+                                                <li><a href="/pms/panel-de-checkin">Panel de Check-In</a></li>
+                                                <li><a href="/pms/herramientas/calculadora">Calculadora</a></li>
+                                            </ul>
+										</li>
+                                        <li><a href="/crm/gestion-demanda">CRM <i class="ti-angle-down"></i></a>
+											<ul class="submenu">
+                                                <li><a href="/crm/gestion-demanda">Control de demandas</a></li>
+                                                <li><a href="/crm/calendario">Calendario</a></li>
+												<li><a href="#">Informes</a></li>
+                                            </ul>
+										</li>
+                                        <li><a class="active" href="/channelmanager/gestion-de-comerciales">Channel Manager <i class="ti-angle-down"></i></a>
+											<ul class="submenu">
+                                                <li><a href="/channelmanager/gestion-de-comerciales">Gestión de comerciales</a></li>
+                                                <li><a href="/channelmanager/gestion-de-variables">Gestión de variables</a></li>
+												<li><a href="/channelmanager/gestion-de-inmuebles">Gestión de inmuebles</a></li>
+                                            </ul>
+										</li>
+                                        <li><a href="#">Account</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
+
+    <!-- bradcam_area_start -->
+    <div class="bradcam_area breadcam_bg">
+    </div>
+    <!-- bradcam_area_end -->
+
+	<!-- Start Sample Area -->
+	<section class="sample-text-area">
+		<div class="container box_1170">
+			<p>En esta sección se muestran aquellas variables que intervienen en los diferentes apartados de la aplicación. Todos ellos se pueden modificar pero es importante tener en cuenta que cualquier variación afectará de forma permanente. Todos los valores se expresan en tantos por ciento.</p>
+			<h3 class="text-heading">Modificación de variables de la calculadora</h3>
+			<form method="post"> {% csrf_token %}
+				<div class="row">
+					<div class="col-md-3">
+						<h4>Tipo de habitación</h4>
+						Exterior: <input type="number" min="-30" max="30" step="1" name="varCalculadoraTipoExt" id="varCalculadoraTipoExt" class="box" value="{{varCalculadoraTipoExt}}">
+						Interior: <input type="number" min="-30" max="30" step="1" name="varCalculadoraTipoInt" id="varCalculadoraTipoInt" class="box" value="{{varCalculadoraTipoInt}}">
+					</div>
+					<div class="col-md-3">
+						<h4>Uso de habitación</h4>
+						Individual: <input type="number" min="-30" max="30" step="1" name="varCalculadoraUsoInd" id="varCalculadoraUsoInd" class="box" value="{{varCalculadoraUsoInd}}">
+						Doble: <input type="number" min="-30" max="30" step="1" name="varCalculadoraUsoDob" id="varCalculadoraUsoDob" class="box" value="{{varCalculadoraUsoDob}}">
+					</div>
+					<div class="col-md-3">
+						<h4>Balcón</h4>
+						Si: <input type="number" min="-30" max="30" step="1" name="varCalculadoraBalSi" id="varCalculadoraBalSi" class="box" value="{{varCalculadoraBalSi}}">
+						No: <input type="number" min="-30" max="30" step="1" name="varCalculadoraBalNo" id="varCalculadoraBalNo" class="box" value="{{varCalculadoraBalNo}}">
+					</div>
+					<div class="col-md-3">
+						<h4>Ascensor</h4>
+						Si: <input type="number" min="-30" max="30" step="1" name="varCalculadoraAscSi" id="varCalculadoraAscSi" class="box" value="{{varCalculadoraAscSi}}">
+						No: <input type="number" min="-30" max="30" step="1" name="varCalculadoraAscNo" id="varCalculadoraAscNo" class="box" value="{{varCalculadoraAscNo}}">
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-md-3">
+						<h4>Número de habitaciones</h4>
+						4 habitaciones: <input type="number" min="-30" max="30" step="1" name="varCalculadoraHab4" id="varCalculadoraHab4" class="box" value="{{varCalculadoraHab4}}">
+						5 habitaciones: <input type="number" min="-30" max="30" step="1" name="varCalculadoraHab5" id="varCalculadoraHab5" class="box" value="{{varCalculadoraHab5}}">
+						6 habitaciones: <input type="number" min="-30" max="30" step="1" name="varCalculadoraHab6" id="varCalculadoraHab6" class="box" value="{{varCalculadoraHab6}}">
+						7 habitaciones: <input type="number" min="-30" max="30" step="1" name="varCalculadoraHab7" id="varCalculadoraHab7" class="box" value="{{varCalculadoraHab7}}">
+						8 habitaciones: <input type="number" min="-30" max="30" step="1" name="varCalculadoraHab8" id="varCalculadoraHab8" class="box" value="{{varCalculadoraHab8}}">
+						Más de 8 habitaciones: <input type="number" min="-30" max="30" step="1" name="varCalculadoraHabPlus" id="varCalculadoraHabPlus" class="box" value="{{varCalculadoraHabPlus}}">
+					</div>
+					<div class="col-md-3">
+						<h4>Tipo de cama</h4>
+						Cama de 90cm: <input type="number" min="-30" max="30" step="1" name="varCalculadoraCama90" id="varCalculadoraCama90" class="box" value="{{varCalculadoraCama90}}">
+						Cama de 105cm: <input type="number" min="-30" max="30" step="1" name="varCalculadoraCama105" id="varCalculadoraCama105" class="box" value="{{varCalculadoraCama105}}">
+						Cama de 135cm: <input type="number" min="-30" max="30" step="1" name="varCalculadoraCama135" id="varCalculadoraCama135" class="box" value="{{varCalculadoraCama135}}">
+						Cama de 150cm: <input type="number" min="-30" max="30" step="1" name="varCalculadoraCama150" id="varCalculadoraCama150" class="box" value="{{varCalculadoraCama150}}">
+						Dos camas de 90cm: <input type="number" min="-30" max="30" step="1" name="varCalculadoraCama2x90" id="varCalculadoraCama2x90" class="box" value="{{varCalculadoraCama2x90}}">
+					</div>
+					<div class="col-md-3">
+						<h4>Zona de localización</h4>
+						Zona 1 (centro urbano): <input type="number" min="-30" max="30" step="1" name="varCalculadoraZona1" id="varCalculadoraZona1" class="box" value="{{varCalculadoraZona1}}">
+						Zona 2 (ciudad): <input type="number" min="-30" max="30" step="1" name="varCalculadoraZona2" id="varCalculadoraZona2" class="box" value="{{varCalculadoraZona2}}">
+						Zona 3 (periferia): <input type="number" min="-30" max="30" step="1" name="varCalculadoraZona3" id="varCalculadoraZona3" class="box" value="{{varCalculadoraZona3}}">
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-5"></div>
+					<div class="col-md-1">
+						<button type="submit" class="btn btn-outline-primary">Guardar</button>
+					</div>
+					<div class="col-md-1">
+						<button type="reset" class="btn btn-outline-dark">Reiniciar</button>
+					</div>
+					<div class="col-md-5"></div>
+				</div>
+			</form>
+		</div>
+	</section>
+	<!-- End Sample Area -->
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Zona PMS
+                            </h3>
+							<ul>
+								<li><a href="#">Planning de ocupación</a></li>
+								<li><a href="#">Panel de reservas</a></li>
+								<li><a href="#">Facturación</a></li>
+								<li><a href="#">Cuadro de caja</a></li>
+								<li><a href="#">Panel de Check-In</a></li>
+                                <li><a href="/pms/herramientas/calculadora">Calculadora</a></li>
+							</ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Zona CRM
+                            </h3>
+							<ul>
+								<li><a href="/crm/gestion-demanda">Control de demandas</a></li>
+								<li><a href="#">Calendario</a></li>
+								<li><a href="#">Informes</a></li>
+							</ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-2">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Manager
+                            </h3>
+                            <ul>
+								<li><a href="#">Gestión de usuarios</a></li>
+								<li><a href="#">Gestión de variables</a></li>
+								<li><a href="#">Gestión de inmuebles</a></li>
+							</ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right_text">
+            <div class="container">
+                <div class="footer_border"></div>
+                <div class="row">
+                    <div class="col-xl-8 col-md-7 col-lg-9">
+                        <p class="copy_right">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                    <div class="col-xl-4 col-md-5 col-lg-3">
+                        <div class="socail_links">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-facebook-square"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- form itself end-->
+	<form id="test-form" class="white-popup-block mfp-hide">
+		<div class="popup_box ">
+				<div class="popup_inner">
+					<h3>Check Availability</h3>
+					<form action="#">
+						<div class="row">
+							<div class="col-xl-6">
+								<input id="datepicker" placeholder="Check in date">
+							</div>
+							<div class="col-xl-6">
+								<input id="datepicker2" placeholder="Check out date">
+							</div>
+							<div class="col-xl-6">
+								<select class="form-select wide" id="default-select" class="">
+									<option data-display="Adult">1</option>
+									<option value="1">2</option>
+									<option value="2">3</option>
+									<option value="3">4</option>
+								</select>
+							</div>
+							<div class="col-xl-6">
+								<select class="form-select wide" id="default-select" class="">
+									<option data-display="Children">1</option>
+									<option value="1">2</option>
+									<option value="2">3</option>
+									<option value="3">4</option>
+								</select>
+							</div>
+							<div class="col-xl-12">
+								<select class="form-select wide" id="default-select" class="">
+									<option data-display="Room type">Room type</option>
+									<option value="1">Laxaries Rooms</option>
+									<option value="2">Deluxe Room</option>
+									<option value="3">Signature Room</option>
+									<option value="4">Couple Room</option>
+								</select>
+							</div>
+							<div class="col-xl-12">
+								<button type="submit" class="boxed-btn3">Check Availability</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+	</form>
+<!-- form itself end -->
+
+	<!-- JS here -->
+	<script src="/static/js/vendor/modernizr-3.5.0.min.js"></script>
+	<script src="/static/js/vendor/jquery-1.12.4.min.js"></script>
+	<script src="/static/js/popper.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/owl.carousel.min.js"></script>
+	<script src="/static/js/isotope.pkgd.min.js"></script>
+	<script src="/static/js/ajax-form.js"></script>
+	<script src="/static/js/waypoints.min.js"></script>
+	<script src="/static/js/jquery.counterup.min.js"></script>
+	<script src="/static/js/imagesloaded.pkgd.min.js"></script>
+	<script src="/static/js/scrollIt.js"></script>
+	<script src="/static/js/jquery.scrollUp.min.js"></script>
+	<script src="/static/js/wow.min.js"></script>
+	<script src="/static/js/nice-select.min.js"></script>
+	<script src="/static/js/jquery.slicknav.min.js"></script>
+	<script src="/static/js/jquery.magnific-popup.min.js"></script>
+	<script src="/static/js/plugins.js"></script>
+	<script src="/static/js/gijgo.min.js"></script>
+
+	<!--contact js-->
+	<script src="/static/js/contact.js"></script>
+	<script src="/static/js/jquery.ajaxchimp.min.js"></script>
+	<script src="/static/js/jquery.form.js"></script>
+	<script src="/static/js/jquery.validate.min.js"></script>
+	<script src="/static/js/mail-script.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+</body>
+</html>
