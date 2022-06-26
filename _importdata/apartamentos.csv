@@ -1,0 +1,13 @@
+idedif,calle,numero,piso,letra,ciudad,estado,pais,cp,otros
+1,Calle de Padilla,12,4,B,Madrid,Madrid,España,28006,Necesita alguna reparación menor
+2,Calle de Maldonado,7,2,F,Madrid,Madrid,España,28006,
+3,Calle de los Misterios,44,1,E,Madrid,Madrid,España,28027,
+4,Calle de San Leopoldo,63,2,B,Madrid,Madrid,España,28029,
+5,Calle del Tutor,48,3,B,Madrid,Madrid,España,28008,
+6,Calle de Gregorio Navas,26,1,E,Madrid,Madrid,España,28053,Edificio antiguo
+7,Calle Nestares,20,4,E,Madrid,Madrid,España,28045,
+8,Calle de Abastos,42,3,A,Aranjuez,Madrid,España,28300,
+9,Calle de las Moreras,219,5,E,Aranjuez,Madrid,España,28300,Urbanización privada con zonas comunes
+10,Carrer de Tordera,27,3,D,Barcelona,Cataluña,España,08012,
+11,Carrer de les Tres Torres,29,1,C,Barcelona,Cataluña,España,08017,
+12,Carrer de la Riereta,17,3,D,Barcelona,Cataluña,España,08001,
